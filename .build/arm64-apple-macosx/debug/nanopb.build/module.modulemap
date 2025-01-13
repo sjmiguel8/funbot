@@ -1,4 +1,0 @@
-module nanopb {
-    umbrella "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/nanopb/spm_headers"
-    export *
-}

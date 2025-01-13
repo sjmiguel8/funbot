@@ -1,4 +1,0 @@
-module FirebaseAnalyticsWrapper {
-    umbrella "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/firebase-ios-sdk/FirebaseAnalyticsWrapper/include"
-    export *
-}

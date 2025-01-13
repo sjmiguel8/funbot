@@ -1,4 +1,0 @@
-module FirebaseCrashlyticsSwift {
-    header "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/FirebaseCrashlyticsSwift.build/FirebaseCrashlyticsSwift-Swift.h"
-    requires objc
-}

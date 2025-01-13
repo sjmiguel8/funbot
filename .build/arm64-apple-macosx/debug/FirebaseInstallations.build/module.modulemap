@@ -1,4 +1,0 @@
-module FirebaseInstallations {
-    umbrella header "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/firebase-ios-sdk/FirebaseInstallations/Source/Library/Public/FirebaseInstallations/FirebaseInstallations.h"
-    export *
-}

@@ -1,4 +1,0 @@
-module FirebaseDatabaseSwift {
-    header "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/FirebaseDatabaseSwift.build/FirebaseDatabaseSwift-Swift.h"
-    requires objc
-}

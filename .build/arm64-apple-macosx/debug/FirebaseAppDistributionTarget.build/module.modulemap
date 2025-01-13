@@ -1,4 +1,0 @@
-module FirebaseAppDistributionTarget {
-    umbrella "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/firebase-ios-sdk/SwiftPM-PlatformExclude/FirebaseAppDistributionWrap/include"
-    export *
-}

@@ -1,4 +1,0 @@
-module myapp {
-    header "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/myapp-Swift.h"
-    requires objc
-}

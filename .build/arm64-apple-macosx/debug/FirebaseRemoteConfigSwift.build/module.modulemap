@@ -1,4 +1,0 @@
-module FirebaseRemoteConfigSwift {
-    header "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/FirebaseRemoteConfigSwift.build/FirebaseRemoteConfigSwift-Swift.h"
-    requires objc
-}

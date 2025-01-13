@@ -1,4 +1,0 @@
-module FirebaseInAppMessagingInternal {
-    umbrella "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/firebase-ios-sdk/FirebaseInAppMessaging/Sources/Public"
-    export *
-}

@@ -1,4 +1,0 @@
-module FirebaseMessagingInterop {
-    umbrella "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/firebase-ios-sdk/FirebaseMessaging/Interop"
-    export *
-}

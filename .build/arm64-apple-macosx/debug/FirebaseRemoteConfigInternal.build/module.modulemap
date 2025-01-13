@@ -1,4 +1,0 @@
-module FirebaseRemoteConfigInternal {
-    umbrella "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/firebase-ios-sdk/FirebaseRemoteConfig/Sources/Public"
-    export *
-}

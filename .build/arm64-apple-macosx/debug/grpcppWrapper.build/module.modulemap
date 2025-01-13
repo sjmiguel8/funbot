@@ -1,4 +1,0 @@
-module grpcppWrapper {
-    umbrella "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/grpc-binary/grpcpp-Wrapper/include"
-    export *
-}

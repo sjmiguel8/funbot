@@ -1,4 +1,0 @@
-module GoogleAppMeasurementWithoutAdIdSupportTarget {
-    umbrella "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/GoogleAppMeasurement/GoogleAppMeasurementWithoutAdIdSupportWrapper/include"
-    export *
-}

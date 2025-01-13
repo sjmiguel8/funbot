@@ -1,4 +1,0 @@
-module GoogleUtilities_AppDelegateSwizzler {
-    umbrella "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/GoogleUtilities/GoogleUtilities/AppDelegateSwizzler/Public"
-    export *
-}

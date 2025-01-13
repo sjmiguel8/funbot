@@ -1,4 +1,0 @@
-module FirebaseCoreInternal {
-    header "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/FirebaseCoreInternal.build/FirebaseCoreInternal-Swift.h"
-    requires objc
-}

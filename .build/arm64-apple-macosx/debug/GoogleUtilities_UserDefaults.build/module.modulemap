@@ -1,4 +1,0 @@
-module GoogleUtilities_UserDefaults {
-    umbrella "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/GoogleUtilities/GoogleUtilities/UserDefaults/Public"
-    export *
-}

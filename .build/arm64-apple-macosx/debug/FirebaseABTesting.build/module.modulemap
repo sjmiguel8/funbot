@@ -1,4 +1,0 @@
-module FirebaseABTesting {
-    umbrella header "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/firebase-ios-sdk/FirebaseABTesting/Sources/Public/FirebaseABTesting/FirebaseABTesting.h"
-    export *
-}

@@ -1,4 +1,0 @@
-module SwiftProtobuf {
-    header "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/SwiftProtobuf.build/SwiftProtobuf-Swift.h"
-    requires objc
-}

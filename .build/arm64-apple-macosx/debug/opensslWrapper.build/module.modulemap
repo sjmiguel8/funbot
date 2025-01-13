@@ -1,4 +1,0 @@
-module opensslWrapper {
-    umbrella "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/grpc-binary/openssl-grpc-Wrapper/include"
-    export *
-}

@@ -1,4 +1,0 @@
-module Promises {
-    header "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/Promises.build/Promises-Swift.h"
-    requires objc
-}

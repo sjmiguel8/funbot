@@ -1,4 +1,0 @@
-module FirebaseAnalyticsSwift {
-    header "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/FirebaseAnalyticsSwift.build/FirebaseAnalyticsSwift-Swift.h"
-    requires objc
-}

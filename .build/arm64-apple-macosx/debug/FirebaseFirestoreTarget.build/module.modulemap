@@ -1,4 +1,0 @@
-module FirebaseFirestoreTarget {
-    umbrella "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/firebase-ios-sdk/SwiftPM-PlatformExclude/FirebaseFirestoreWrap/include"
-    export *
-}

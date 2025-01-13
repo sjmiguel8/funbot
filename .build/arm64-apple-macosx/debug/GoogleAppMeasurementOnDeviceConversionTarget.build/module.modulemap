@@ -1,4 +1,0 @@
-module GoogleAppMeasurementOnDeviceConversionTarget {
-    umbrella "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/GoogleAppMeasurement/GoogleAppMeasurementOnDeviceConversionWrapper/include"
-    export *
-}

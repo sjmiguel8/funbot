@@ -1,4 +1,0 @@
-module FirebasePerformance {
-    umbrella header "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/firebase-ios-sdk/FirebasePerformance/Sources/Public/FirebasePerformance/FirebasePerformance.h"
-    export *
-}
