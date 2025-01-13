@@ -1,0 +1,54 @@
+# Auto detect text files and perform LF normalization
+* text=auto eol=lf
+
+# Source code
+*.css text
+*.html text
+*.js text
+*.json text
+*.jsx text
+*.ts text
+*.tsx text
+*.yml text
+*.yaml text
+
+# Documentation
+*.md text
+*.txt text
+
+# Swift specific
+*.swift text
+*.pbxproj merge=union
+
+# Graphics
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.svg text
+
+# Large File Storage (LFS)
+*.pack filter=lfs diff=lfs merge=lfs -text
+*.mdb filter=lfs diff=lfs merge=lfs -text
+*.bundle filter=lfs diff=lfs merge=lfs -text
+*.dylib filter=lfs diff=lfs merge=lfs -text
+*.a filter=lfs diff=lfs merge=lfs -text
+*.framework filter=lfs diff=lfs merge=lfs -text
+
+# Fonts
+*.ttf binary
+*.eot binary
+*.woff binary
+*.woff2 binary
+
+# Executables
+*.exe binary
+*.dll binary
+*.so binary
+*.dylib binary
+
+# RC files (like .babelrc, .eslintrc)
+*rc text
+
+# Ignore files (like .gitignore, .npmignore)
+*ignore text

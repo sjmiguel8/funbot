@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 17, 24, 39;
+  --background-end-rgb: 31, 41, 55;
+}
+
+@layer base {
+  /* Override default link styles */
+  a {
+    @apply text-inherit no-underline;
+  }
+
+  /* Add some basic styles */
+  body {
+    @apply text-gray-100 bg-gray-900;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1 {
+    @apply text-2xl font-bold text-white mb-4;
+  }
+
+  h2 {
+    @apply text-xl font-semibold text-white mb-3;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg 
+           transition-colors duration-200 shadow-lg hover:shadow-xl;
+  }
+  
+  .card {
+    @apply bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-700;
+  }
+
+  .post-card {
+    @apply bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-700 
+           hover:border-gray-600 transition-colors duration-200;
+  }
+  
+  .profile-link {
+    @apply flex items-center space-x-2 text-gray-300 hover:text-white 
+           transition-colors duration-200;
+  }
+  
+  .interaction-button {
+    @apply flex items-center space-x-1 text-gray-400 hover:text-blue-500 
+           transition-colors duration-200;
+  }
+}
+
+.forum-regular {
+  font-family: "Noto Sans Wancho", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+  font-size: 24px;
+  line-height: 1;
+  color: #fff;
+}
+
+/* For filled icons when active */
+.material-symbols-outlined.filled {
+  font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
