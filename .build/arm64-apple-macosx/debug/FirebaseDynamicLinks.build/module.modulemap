@@ -1,0 +1,4 @@
+module FirebaseDynamicLinks {
+    umbrella header "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/firebase-ios-sdk/FirebaseDynamicLinks/Sources/Public/FirebaseDynamicLinks/FirebaseDynamicLinks.h"
+    export *
+}

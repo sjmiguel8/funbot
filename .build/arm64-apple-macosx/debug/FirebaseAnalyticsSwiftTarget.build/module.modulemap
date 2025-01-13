@@ -1,0 +1,4 @@
+module FirebaseAnalyticsSwiftTarget {
+    umbrella "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/firebase-ios-sdk/SwiftPM-PlatformExclude/FirebaseAnalyticsSwiftWrap/include"
+    export *
+}

@@ -1,0 +1,4 @@
+module AppCheckCore {
+    umbrella header "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/app-check/AppCheckCore/Sources/Public/AppCheckCore/AppCheckCore.h"
+    export *
+}

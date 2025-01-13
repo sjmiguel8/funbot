@@ -1,0 +1,4 @@
+module FirebaseAuthInterop {
+    umbrella "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/firebase-ios-sdk/FirebaseAuth/Interop"
+    export *
+}

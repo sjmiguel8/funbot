@@ -1,0 +1,4 @@
+module FirebaseAppDistribution {
+    umbrella header "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/firebase-ios-sdk/FirebaseAppDistribution/Sources/Public/FirebaseAppDistribution/FirebaseAppDistribution.h"
+    export *
+}

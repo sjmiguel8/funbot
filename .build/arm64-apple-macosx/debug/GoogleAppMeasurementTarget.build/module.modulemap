@@ -1,0 +1,4 @@
+module GoogleAppMeasurementTarget {
+    umbrella "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/GoogleAppMeasurement/GoogleAppMeasurementWrapper/include"
+    export *
+}

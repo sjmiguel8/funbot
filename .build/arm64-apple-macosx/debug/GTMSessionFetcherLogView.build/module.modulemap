@@ -1,0 +1,4 @@
+module GTMSessionFetcherLogView {
+    umbrella "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/gtm-session-fetcher/Sources/LogView/Public"
+    export *
+}

@@ -1,0 +1,107 @@
+{
+  "": {
+    "swift-dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/master.swiftdeps"
+  },
+  "/Users/miguelbonilla/Desktop/Coding/funbot/myapp/Config/FirebaseConfig.swift": {
+    "dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/FirebaseConfig.d",
+    "object": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/FirebaseConfig.swift.o",
+    "swiftmodule": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/FirebaseConfig~partial.swiftmodule",
+    "swift-dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/FirebaseConfig.swiftdeps"
+  },
+  "/Users/miguelbonilla/Desktop/Coding/funbot/myapp/HomeView.swift": {
+    "dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/HomeView.d",
+    "object": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/HomeView.swift.o",
+    "swiftmodule": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/HomeView~partial.swiftmodule",
+    "swift-dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/HomeView.swiftdeps"
+  },
+  "/Users/miguelbonilla/Desktop/Coding/funbot/myapp/Models/AuthManager.swift": {
+    "dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/AuthManager.d",
+    "object": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/AuthManager.swift.o",
+    "swiftmodule": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/AuthManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/AuthManager.swiftdeps"
+  },
+  "/Users/miguelbonilla/Desktop/Coding/funbot/myapp/Models/FirestoreManager.swift": {
+    "dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/FirestoreManager.d",
+    "object": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/FirestoreManager.swift.o",
+    "swiftmodule": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/FirestoreManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/FirestoreManager.swiftdeps"
+  },
+  "/Users/miguelbonilla/Desktop/Coding/funbot/myapp/Models/Notification.swift": {
+    "dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/Notification.d",
+    "object": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/Notification.swift.o",
+    "swiftmodule": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/Notification~partial.swiftmodule",
+    "swift-dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/Notification.swiftdeps"
+  },
+  "/Users/miguelbonilla/Desktop/Coding/funbot/myapp/Models/Post.swift": {
+    "dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/Post.d",
+    "object": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/Post.swift.o",
+    "swiftmodule": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/Post~partial.swiftmodule",
+    "swift-dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/Post.swiftdeps"
+  },
+  "/Users/miguelbonilla/Desktop/Coding/funbot/myapp/Models/User.swift": {
+    "dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/User.d",
+    "object": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/User.swift.o",
+    "swiftmodule": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/User~partial.swiftmodule",
+    "swift-dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/User.swiftdeps"
+  },
+  "/Users/miguelbonilla/Desktop/Coding/funbot/myapp/MyApp.swift": {
+    "dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/MyApp.d",
+    "object": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/MyApp.swift.o",
+    "swiftmodule": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/MyApp~partial.swiftmodule",
+    "swift-dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/MyApp.swiftdeps"
+  },
+  "/Users/miguelbonilla/Desktop/Coding/funbot/myapp/Views/BookmarksView.swift": {
+    "dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/BookmarksView.d",
+    "object": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/BookmarksView.swift.o",
+    "swiftmodule": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/BookmarksView~partial.swiftmodule",
+    "swift-dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/BookmarksView.swiftdeps"
+  },
+  "/Users/miguelbonilla/Desktop/Coding/funbot/myapp/Views/ExploreView.swift": {
+    "dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/ExploreView.d",
+    "object": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/ExploreView.swift.o",
+    "swiftmodule": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/ExploreView~partial.swiftmodule",
+    "swift-dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/ExploreView.swiftdeps"
+  },
+  "/Users/miguelbonilla/Desktop/Coding/funbot/myapp/Views/ImagePicker.swift": {
+    "dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/ImagePicker.d",
+    "object": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/ImagePicker.swift.o",
+    "swiftmodule": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/ImagePicker~partial.swiftmodule",
+    "swift-dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/ImagePicker.swiftdeps"
+  },
+  "/Users/miguelbonilla/Desktop/Coding/funbot/myapp/Views/LoginView.swift": {
+    "dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/LoginView.d",
+    "object": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/LoginView.swift.o",
+    "swiftmodule": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/LoginView~partial.swiftmodule",
+    "swift-dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/LoginView.swiftdeps"
+  },
+  "/Users/miguelbonilla/Desktop/Coding/funbot/myapp/Views/MessagesView.swift": {
+    "dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/MessagesView.d",
+    "object": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/MessagesView.swift.o",
+    "swiftmodule": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/MessagesView~partial.swiftmodule",
+    "swift-dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/MessagesView.swiftdeps"
+  },
+  "/Users/miguelbonilla/Desktop/Coding/funbot/myapp/Views/NavigationList.swift": {
+    "dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/NavigationList.d",
+    "object": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/NavigationList.swift.o",
+    "swiftmodule": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/NavigationList~partial.swiftmodule",
+    "swift-dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/NavigationList.swiftdeps"
+  },
+  "/Users/miguelbonilla/Desktop/Coding/funbot/myapp/Views/NotificationsView.swift": {
+    "dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/NotificationsView.d",
+    "object": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/NotificationsView.swift.o",
+    "swiftmodule": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/NotificationsView~partial.swiftmodule",
+    "swift-dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/NotificationsView.swiftdeps"
+  },
+  "/Users/miguelbonilla/Desktop/Coding/funbot/myapp/Views/ProfileView.swift": {
+    "dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/ProfileView.d",
+    "object": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/ProfileView.swift.o",
+    "swiftmodule": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/ProfileView~partial.swiftmodule",
+    "swift-dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/ProfileView.swiftdeps"
+  },
+  "/Users/miguelbonilla/Desktop/Coding/funbot/myapp/Views/SearchView.swift": {
+    "dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/SearchView.d",
+    "object": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/SearchView.swift.o",
+    "swiftmodule": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/SearchView~partial.swiftmodule",
+    "swift-dependencies": "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/myapp.build/SearchView.swiftdeps"
+  }
+}

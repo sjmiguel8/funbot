@@ -1,0 +1,4 @@
+module GoogleUtilities_NSData {
+    umbrella "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/GoogleUtilities/GoogleUtilities/NSData+zlib/Public"
+    export *
+}

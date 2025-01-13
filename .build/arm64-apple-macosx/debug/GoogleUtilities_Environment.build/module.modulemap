@@ -1,0 +1,4 @@
+module GoogleUtilities_Environment {
+    umbrella "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/GoogleUtilities/GoogleUtilities/Environment/Public"
+    export *
+}

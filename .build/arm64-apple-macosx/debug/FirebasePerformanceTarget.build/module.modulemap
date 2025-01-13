@@ -1,0 +1,4 @@
+module FirebasePerformanceTarget {
+    umbrella "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/firebase-ios-sdk/SwiftPM-PlatformExclude/FirebasePerformanceWrap/include"
+    export *
+}

@@ -1,0 +1,4 @@
+module FirebaseCoreExtension {
+    umbrella "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/firebase-ios-sdk/FirebaseCore/Extension"
+    export *
+}

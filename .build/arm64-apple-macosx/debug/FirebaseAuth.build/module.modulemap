@@ -1,0 +1,4 @@
+module FirebaseAuth {
+    umbrella header "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/firebase-ios-sdk/FirebaseAuth/Sources/Public/FirebaseAuth/FirebaseAuth.h"
+    export *
+}

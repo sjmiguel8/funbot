@@ -1,0 +1,4 @@
+module FirebaseInAppMessagingSwift {
+    header "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/FirebaseInAppMessagingSwift.build/FirebaseInAppMessagingSwift-Swift.h"
+    requires objc
+}

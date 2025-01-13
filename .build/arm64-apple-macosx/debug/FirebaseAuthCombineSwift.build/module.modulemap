@@ -1,0 +1,4 @@
+module FirebaseAuthCombineSwift {
+    header "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/FirebaseAuthCombineSwift.build/FirebaseAuthCombineSwift-Swift.h"
+    requires objc
+}

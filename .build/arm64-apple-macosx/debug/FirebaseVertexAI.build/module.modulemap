@@ -1,0 +1,4 @@
+module FirebaseVertexAI {
+    header "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/FirebaseVertexAI.build/FirebaseVertexAI-Swift.h"
+    requires objc
+}

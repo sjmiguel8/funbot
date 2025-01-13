@@ -1,43 +1,48 @@
-# Build and dependencies
-.build/
-.build
+# Build
+.next/
+out/
 build/
-*.mdb
-*.pack
-firebase-ios-sdk*/
-.swiftpm/
-myapp.xcworkspace/
-myapp.xcodeproj/
-myappTest/
-myappUITests/
+dist/
 
 # Dependencies
 node_modules/
-.next/
-out/
-amplify/
 
-
-# Debug logs
+# Debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-
 # Local env files
 .env*.local
-.env.local
-.env
 
+# Vercel
+.vercel
 
-# Cache
-.cache/
-.eslintcache
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
 
+# Amplify
+amplify/
+.amplify/
 
 # IDE
-.vscode/
 .idea/
-*.swp
-*.swo
+.vscode/
+
+# OS
 .DS_Store
+*.pem
+
+# Swift build directory
+.build/
+.build/*
+*/.build/
+.swiftpm/
+
+# Firebase and Google dependencies
+GoogleAppMeasurement/
+GoogleDataTransport/
+GoogleUtilities/
+firebase-ios-sdk/
+

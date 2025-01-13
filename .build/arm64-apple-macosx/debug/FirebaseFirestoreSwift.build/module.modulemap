@@ -1,0 +1,4 @@
+module FirebaseFirestoreSwift {
+    header "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/FirebaseFirestoreSwift.build/FirebaseFirestoreSwift-Swift.h"
+    requires objc
+}

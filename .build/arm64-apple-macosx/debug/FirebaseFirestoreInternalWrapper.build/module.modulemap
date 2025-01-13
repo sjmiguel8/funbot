@@ -1,0 +1,4 @@
+module FirebaseFirestoreInternalWrapper {
+    umbrella "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/firebase-ios-sdk/FirebaseFirestoreInternal"
+    export *
+}

@@ -1,0 +1,4 @@
+module GoogleUtilities_Reachability {
+    umbrella "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/GoogleUtilities/GoogleUtilities/Reachability/Public"
+    export *
+}

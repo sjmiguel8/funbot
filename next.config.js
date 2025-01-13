@@ -1,13 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ['react-bootstrap'],
-  webpack: (config) => {
-    config.resolve.fallback = {
-      ...config.resolve.fallback,
-      "@popperjs/core": false,
-    };
-    return config;
+  output: 'export',
+  images: {
+    unoptimized: true,
   },
-};
+  // Ensure we can deploy to Amplify
+  distDir: 'out',
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig

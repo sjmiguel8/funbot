@@ -1,0 +1,4 @@
+module FirebaseFirestoreCombineSwift {
+    header "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/FirebaseFirestoreCombineSwift.build/FirebaseFirestoreCombineSwift-Swift.h"
+    requires objc
+}

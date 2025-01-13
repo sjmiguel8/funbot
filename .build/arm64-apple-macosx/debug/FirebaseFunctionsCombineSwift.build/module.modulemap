@@ -1,0 +1,4 @@
+module FirebaseFunctionsCombineSwift {
+    header "/Users/miguelbonilla/Desktop/Coding/funbot/.build/arm64-apple-macosx/debug/FirebaseFunctionsCombineSwift.build/FirebaseFunctionsCombineSwift-Swift.h"
+    requires objc
+}

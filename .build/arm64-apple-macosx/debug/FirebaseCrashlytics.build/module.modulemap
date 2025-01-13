@@ -1,0 +1,4 @@
+module FirebaseCrashlytics {
+    umbrella header "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/firebase-ios-sdk/Crashlytics/Crashlytics/Public/FirebaseCrashlytics/FirebaseCrashlytics.h"
+    export *
+}

@@ -1,0 +1,4 @@
+module FirebaseDatabaseInternal {
+    umbrella "/Users/miguelbonilla/Desktop/Coding/funbot/.build/checkouts/firebase-ios-sdk/FirebaseDatabase/Sources/Public"
+    export *
+}
