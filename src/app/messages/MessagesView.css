@@ -1,0 +1,16 @@
+.messages-view {
+  background-color: #f8f9fa; /* Light background for the messages view */
+}
+
+.chat-list {
+  width: 320px; /* Fixed width for the chat list */
+}
+
+.messages-area {
+  background-color: #ffffff; /* White background for the messages area */
+  border-left: 1px solid #dee2e6; /* Border between chat list and messages area */
+}
+
+.border-secondary {
+  border-color: #6c757d !important; /* Custom border color */
+} 

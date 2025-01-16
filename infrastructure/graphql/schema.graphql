@@ -1,0 +1,48 @@
+type Post {
+  id: ID!
+  content: String!
+  authorId: ID!
+  authorName: String!
+  timestamp: AWSDateTime!
+  likes: Int!
+  comments: Int!
+  attachments: [Attachment]
+}
+
+type Attachment {
+  type: AttachmentType!
+  url: String!
+}
+
+enum AttachmentType {
+  IMAGE
+  AUDIO
+  VIDEO
+}
+
+type Query {
+  getPosts: [Post]!
+}
+
+type Mutation {
+  createPost(input: CreatePostInput!): Post!
+  updatePost(id: ID!, input: UpdatePostInput!): Post!
+  deletePost(id: ID!): Boolean!
+}
+
+input CreatePostInput {
+  content: String!
+  authorId: String!
+  authorName: String!
+  attachments: [AttachmentInput]
+}
+
+input UpdatePostInput {
+  content: String
+  attachments: [AttachmentInput]
+}
+
+input AttachmentInput {
+  type: AttachmentType!
+  url: String!
+} 

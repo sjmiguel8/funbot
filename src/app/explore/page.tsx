@@ -1,8 +1,11 @@
 'use client'
-import React from 'react';
-import { Card, Stack, Form, Button, Row, Col } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Card, Form, Button, Row, Col } from 'react-bootstrap';
+import { Stack } from 'react-bootstrap';
+import './page.css';
 
 const ExploreView = () => {
+  const [selectedGenre, setSelectedGenre] = useState('All');
   const categories = ['All', 'Rock', 'Jazz', 'Electronic', 'Classical', 'Hip Hop'];
   
   return (
@@ -21,7 +24,8 @@ const ExploreView = () => {
             {categories.map((category) => (
               <Button 
                 key={category} 
-                variant="outline-secondary"
+                variant={selectedGenre === category ? 'primary' : 'outline-secondary'}
+                onClick={() => setSelectedGenre(category)}
                 className="rounded-pill"
               >
                 {category}
@@ -41,7 +45,6 @@ const ExploreView = () => {
                 <div className="text-center">
                   <div 
                     className="rounded-circle bg-secondary mx-auto mb-2" 
-                    style={{ width: '80px', height: '80px' }}
                   />
                   <h6 className="text-light mb-0">Artist Name {i}</h6>
                   <small className="text-muted">1.2M followers</small>
@@ -58,7 +61,7 @@ const ExploreView = () => {
           <h5 className="text-light mb-4">Trending Tracks</h5>
           {[1, 2, 3].map((i) => (
             <div key={i} className="d-flex align-items-center mb-3 p-2 hover-overlay rounded">
-              <div className="bg-secondary rounded" style={{ width: '50px', height: '50px' }} />
+              <div className="bg-secondary rounded track-image" />
               <div className="ms-3 flex-grow-1">
                 <h6 className="text-light mb-0">Track Name {i}</h6>
                 <small className="text-muted">Artist {i}</small>
@@ -81,8 +84,7 @@ const ExploreView = () => {
                 <Card bg="dark" border="secondary">
                   <Card.Body>
                     <div 
-                      className="bg-secondary rounded mb-2" 
-                      style={{ width: '100%', height: '120px' }}
+                      className="bg-secondary rounded mb-2 playlist-image" 
                     />
                     <h6 className="text-light mb-1">Playlist {i}</h6>
                     <small className="text-muted">32 tracks</small>

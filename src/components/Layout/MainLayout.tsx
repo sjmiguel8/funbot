@@ -62,14 +62,17 @@ const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <div className="min-vh-100 bg-dark">
       {/* Left Sidebar - Fixed */}
-      <div className="position-fixed start-0 top-0 h-100 bg-dark border-end border-secondary" 
-           style={{ width: '240px', zIndex: 1030 }}>
+      <div className="position-fixed start-0 top-0 h-100 bg-dark border-end border-secondary sidebar" 
+           style={{ zIndex: 1030 }}>
         <div className="p-3">
           <Link href="/" className="d-flex align-items-center text-decoration-none mb-4">
             <div className="rounded-circle bg-primary p-2 me-2"></div>
             <span className="h4 text-light mb-0">Wavelength</span>
           </Link>
           <NavigationList />
+          <Link href="/profile" className="nav-link">
+            Profile
+          </Link>
         </div>
       </div>
 

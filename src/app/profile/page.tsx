@@ -1,86 +1,141 @@
-'use client'
-import { useState } from 'react';
-import { Card, Button, Stack } from 'react-bootstrap';
+'use client';
+import { useState, useEffect } from 'react';
+import { postsService, Post } from '../../services/posts.service';
+import CreatePost from '../../components/CreatePost';
+import { Card, Button } from 'react-bootstrap';
+import { useAuthenticator } from '@aws-amplify/ui-react';
 
-const ProfileView = () => {
-  const [activeTab, setActiveTab] = useState('posts');
-  const [isFollowing, setIsFollowing] = useState(false);
+export default function ProfilePage() {
+  const [userPosts, setUserPosts] = useState<Post[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const { user, authStatus } = useAuthenticator();
+
+  useEffect(() => {
+    let mounted = true;
+
+    async function fetchPosts() {
+      if (authStatus === 'authenticated' && user) {
+        try {
+          setLoading(true);
+          setError(null);
+          const posts = await postsService.getPosts();
+          if (mounted) {
+            const userPosts = posts.filter(post => post.authorId === user.userId);
+            setUserPosts(userPosts);
+          }
+        } catch (err) {
+          if (mounted) {
+            console.error('Failed to load posts:', err);
+            setError('Failed to load posts. Please try again.');
+          }
+        } finally {
+          if (mounted) {
+            setLoading(false);
+          }
+        }
+      } else if (authStatus !== 'configuring') {
+        setLoading(false);
+      }
+    }
+
+    fetchPosts();
+    return () => { mounted = false; };
+  }, [user, authStatus]);
+
+  const loadUserPosts = async (userId: string) => {
+    try {
+      setLoading(true);
+      setError(null);
+      const posts = await postsService.getPosts();
+      const userPosts = posts.filter(post => post.authorId === userId);
+      setUserPosts(userPosts);
+    } catch (err) {
+      console.error('Failed to load posts:', err);
+      setError('Failed to load posts. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) return <div className="text-light">Loading profile...</div>;
+  if (authStatus !== 'authenticated' || !user) {
+    return <div className="text-light">Please sign in to view your profile</div>;
+  }
+  if (error) return <div className="text-danger">{error}</div>;
 
   return (
-    <Stack gap={4} className="mx-auto" style={{ maxWidth: '700px' }}>
+    <div className="container-fluid py-4">
       {/* Profile Header */}
-      <Card bg="dark" border="secondary" className="shadow-sm">
-        <div className="relative">
-          <div className="h-48 bg-gradient-to-r from-blue-500 to-purple-600 rounded-t-lg"></div>
-          <div className="absolute -bottom-16 left-6">
-            <div className="w-32 h-32 bg-gray-300 rounded-full border-4 border-gray-800"></div>
-          </div>
-        </div>
-        
-        <div className="mt-20 px-6 pb-6">
-          <div className="d-flex justify-between align-items-start">
-            <div>
-              <h1 className="text-2xl font-bold text-light">Alex Thompson</h1>
-              <p className="text-muted">@alexmusic</p>
-            </div>
-            <Button
-              onClick={() => setIsFollowing(!isFollowing)}
-              variant={isFollowing ? 'danger' : 'primary'}
-              className="px-4"
-            >
-              {isFollowing ? 'Following' : 'Follow'}
-            </Button>
-          </div>
-          
-          <p className="text-muted mt-4">
-            Music producer 🎵 | Guitar enthusiast 🎸 | Creating vibes since 2018
-          </p>
-          
-          <div className="d-flex space-x-6 mt-4 text-muted">
-            <span><strong>1.2k</strong> Following</span>
-            <span><strong>4.5k</strong> Followers</span>
-            <span><strong>238</strong> Posts</span>
-          </div>
-        </div>
+      <Card bg="dark" text="light" className="mb-4">
+        <Card.Body>
+          <h1 className="h3 mb-2">Your Profile</h1>
+          <p className="text-muted">{user.username}</p>
+        </Card.Body>
       </Card>
 
-      {/* Content Tabs */}
-      <Card bg="dark" border="secondary" className="shadow-sm">
-        <div className="d-flex border-bottom border-secondary mb-4">
-          {['Posts', 'Media', 'Likes'].map((tab) => (
-            <Button
-              key={tab}
-              onClick={() => setActiveTab(tab.toLowerCase())}
-              variant={activeTab === tab.toLowerCase() ? 'primary' : 'link'}
-              className="flex-grow-1 text-light"
-            >
-              {tab}
-            </Button>
-          ))}
-        </div>
+      {/* Create Post Section */}
+      <Card bg="dark" text="light" className="mb-4">
+        <Card.Body>
+          <h2 className="h4 mb-3">Create New Post</h2>
+          <CreatePost onPostCreated={() => loadUserPosts(user.userId)} />
+        </Card.Body>
+      </Card>
 
-        {/* Content based on active tab */}
-        <div className="p-4">
-          {activeTab === 'posts' && (
-            <div className="space-y-4">
-              {/* Sample posts */}
-              <div className="border-b border-gray-700 pb-4">
-                <p className="text-gray-300">Working on some new beats! Can't wait to share them with you all! 🎵</p>
-                <div className="d-flex align-items-center mt-2 text-muted text-sm">
-                  <span>2h ago</span>
-                  <span className="mx-2">•</span>
-                  <span>42 likes</span>
-                  <span className="mx-2">•</span>
-                  <span>12 comments</span>
-                </div>
-              </div>
-              {/* Add more posts */}
+      {/* User Posts Section */}
+      <Card bg="dark" text="light">
+        <Card.Body>
+          <h2 className="h4 mb-3">Your Posts</h2>
+          {userPosts.length === 0 ? (
+            <p className="text-muted">You haven't created any posts yet.</p>
+          ) : (
+            <div className="d-flex flex-column gap-3">
+              {userPosts.map(post => (
+                <Card key={post.id} bg="dark" border="secondary">
+                  <Card.Body>
+                    <div className="d-flex justify-content-between align-items-start mb-3">
+                      <small className="text-muted">
+                        {new Date(post.timestamp).toLocaleString()}
+                      </small>
+                      <div>
+                        <Button
+                          variant="outline-primary"
+                          size="sm"
+                          className="me-2"
+                          onClick={() => {
+                            // Implement edit functionality
+                          }}
+                        >
+                          Edit
+                        </Button>
+                        <Button
+                          variant="outline-danger"
+                          size="sm"
+                          onClick={async () => {
+                            try {
+                              await postsService.deletePost(post.id);
+                              loadUserPosts(user.userId);
+                            } catch (err) {
+                              console.error('Failed to delete post:', err);
+                            }
+                          }}
+                        >
+                          Delete
+                        </Button>
+                      </div>
+                    </div>
+                    <p>{post.content}</p>
+                    <div className="d-flex gap-3 text-muted">
+                      <small>{post.likes} likes</small>
+                      <small>{post.comments} comments</small>
+                    </div>
+                  </Card.Body>
+                </Card>
+              ))}
             </div>
           )}
-        </div>
+        </Card.Body>
       </Card>
-    </Stack>
+    </div>
   );
-};
-
-export default ProfileView; 
+} 

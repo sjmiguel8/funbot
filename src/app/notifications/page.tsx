@@ -1,9 +1,9 @@
 'use client'
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, Stack, Button } from 'react-bootstrap';
 
 const NotificationsView = () => {
-  const notifications = [
+  const [notifications, setNotifications] = useState([
     {
       id: 1,
       type: 'follow',
@@ -35,13 +35,17 @@ const NotificationsView = () => {
       time: '1d ago',
       read: true
     }
-  ];
+  ]);
+
+  const markAllAsRead = () => {
+    setNotifications(notifications.map(notification => ({ ...notification, read: true })));
+  };
 
   return (
     <Stack gap={3} className="mx-auto" style={{ maxWidth: '700px' }}>
       <div className="d-flex justify-content-between align-items-center">
         <h1 className="text-light mb-0">Notifications</h1>
-        <Button variant="link" className="text-muted">Mark all as read</Button>
+        <Button variant="link" className="text-muted" onClick={markAllAsRead}>Mark all as read</Button>
       </div>
 
       {notifications.map((notification) => (

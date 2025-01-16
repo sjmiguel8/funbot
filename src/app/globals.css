@@ -81,3 +81,13 @@
     'opsz' 24;
 }
 
+.sidebar {
+  width: 240px; /* Default width for larger screens */
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 180px; /* Smaller width for mobile devices */
+  }
+}
+

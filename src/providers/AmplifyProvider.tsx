@@ -7,6 +7,8 @@ import { type KeyValueStorageInterface } from '@aws-amplify/core'
 if (!process.env.NEXT_PUBLIC_USER_POOL_ID) throw new Error('NEXT_PUBLIC_USER_POOL_ID is required')
 if (!process.env.NEXT_PUBLIC_USER_POOL_CLIENT_ID) throw new Error('NEXT_PUBLIC_USER_POOL_CLIENT_ID is required')
 if (!process.env.NEXT_PUBLIC_IDENTITY_POOL_ID) throw new Error('NEXT_PUBLIC_IDENTITY_POOL_ID is required')
+if (!process.env.NEXT_PUBLIC_API_URL) throw new Error('NEXT_PUBLIC_API_URL is required')
+if (!process.env.NEXT_PUBLIC_REGION) throw new Error('NEXT_PUBLIC_REGION is required')
 
 // Initialize Amplify configuration
 Amplify.configure({
@@ -21,6 +23,13 @@ Amplify.configure({
         email: true,
         phone: false
       }
+    }
+  },
+  API: {
+    GraphQL: {
+      endpoint: process.env.NEXT_PUBLIC_API_URL,
+      region: process.env.NEXT_PUBLIC_REGION,
+      defaultAuthMode: 'userPool'
     }
   }
 }, {

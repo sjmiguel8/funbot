@@ -1,0 +1,59 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: A simple AWS Serverless Application Model template for your function.
+
+Resources:
+  PostsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Handler: index.handler
+      Runtime: nodejs18.x
+      MemorySize: 128
+      Timeout: 3
+      Environment:
+        POSTS_TABLE: PostsInfrastructureStack-PostsTableC82B36F0-UZETHU5OVEYC
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref Resources:
+              PostsTable:
+                Type: AWS::DynamoDB::Table
+                Properties:
+                  TableName: PostsInfrastructureStack-PostsTableC82B36F0-UZETHU5OVEYC
+                  AttributeDefinitions:
+                    - AttributeName: id
+                      AttributeType: S
+                  KeySchema:
+                    - AttributeName: id
+                      KeyType: HASH
+                  BillingMode: PAY_PER_REQUESTAWSTemplateFormatVersion: '2010-09-09'
+                  Transform: AWS::Serverless-2016-10-31
+                  Description: A simple AWS Serverless Application Model template for your function.
+                  
+                  Resources:
+                    PostsTable:
+                      Type: AWS::DynamoDB::Table
+                      Properties:
+                        TableName: PostsInfrastructureStack-PostsTableC82B36F0-UZETHU5OVEYC
+                        AttributeDefinitions:
+                          - AttributeName: id
+                            AttributeType: S
+                        KeySchema:
+                          - AttributeName: id
+                            KeyType: HASH
+                        BillingMode: PAY_PER_REQUEST
+                  
+                    PostsFunction:
+                      Type: AWS::Serverless::Function
+                      Properties:
+                        CodeUri: .
+                        Handler: index.handler
+                        Runtime: nodejs18.x
+                        MemorySize: 128
+                        Timeout: 3
+                        Environment:
+                          Variables:
+                            POSTS_TABLE: !Ref PostsTable
+                        Policies:
+                          - DynamoDBCrudPolicy:
+                              TableName: !Ref PostsTable

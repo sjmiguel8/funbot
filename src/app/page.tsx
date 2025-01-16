@@ -1,6 +1,10 @@
 'use client'
-import HomeView from '@/components/HomeView'
+import PostFeed from '../components/PostFeed'
 
-export default function Page() {
-  return <HomeView />
+export default function Home() {
+  return (
+    <main className="container mx-auto px-4 py-8">
+      <PostFeed />
+    </main>
+  )
 }
