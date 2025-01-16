@@ -1,14 +1,12 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocumentClient, ScanCommand, PutCommand, UpdateCommand, DeleteCommand } from '@aws-sdk/lib-dynamodb';
+import { UpdateCommand, ScanCommand, PutCommand, DeleteCommand } from '@aws-sdk/lib-dynamodb';
+import { AppSyncResolverHandler } from 'aws-lambda';
 
-const client = new DynamoDBClient({});
-const docClient = DynamoDBDocumentClient.from(client);
+const client = new DynamoDBClient({ region: process.env.AWS_REGION });
 const TABLE_NAME = process.env.POSTS_TABLE!;
 
-export const handler = async (event: any) => {
-  console.log('Event:', JSON.stringify(event, null, 2));
-
-  switch (event.fieldName) {
+export const handler: AppSyncResolverHandler<any, any> = async (event) => {
+  switch (event.info.fieldName) {
     case 'getPosts':
       return await getPosts();
     case 'createPost':
@@ -18,15 +16,13 @@ export const handler = async (event: any) => {
     case 'deletePost':
       return await deletePost(event.arguments.id);
     default:
-      throw new Error(`Unknown field: ${event.fieldName}`);
+      throw new Error('Unknown field, unable to resolve ' + event.info.fieldName);
   }
 };
 
 async function getPosts() {
-  const command = new ScanCommand({
-    TableName: TABLE_NAME,
-  });
-  const result = await docClient.send(command);
+  const command = new ScanCommand({ TableName: TABLE_NAME });
+  const result = await client.send(command);
   return result.Items;
 }
 
@@ -47,7 +43,7 @@ async function createPost(input: any) {
     Item: post,
   });
   
-  await docClient.send(command);
+  await client.send(command);
   return post;
 }
 
@@ -64,7 +60,7 @@ async function updatePost(id: string, content: string) {
     ReturnValues: 'ALL_NEW',
   });
 
-  const result = await docClient.send(command);
+  const result = await client.send(command);
   return result.Attributes;
 }
 
@@ -74,6 +70,6 @@ async function deletePost(id: string) {
     Key: { id: id }
   });
 
-  await docClient.send(command);
+  await client.send(command);
   return true;
 } 

@@ -1,0 +1,221 @@
+{
+  "version": "39.0.0",
+  "artifacts": {
+    "InfrastructureStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "InfrastructureStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "InfrastructureStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "InfrastructureStack.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/96716a8fafbf639c6111d7091aa00a6b727db236238844574fabde0a89163924.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "InfrastructureStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "InfrastructureStack.assets"
+      ],
+      "metadata": {
+        "/InfrastructureStack/PostsUserPool/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PostsUserPool11DF0D68"
+          }
+        ],
+        "/InfrastructureStack/PostsUserPoolClient/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PostsUserPoolClient7203F027"
+          }
+        ],
+        "/InfrastructureStack/PostsIdentityPool": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PostsIdentityPool"
+          }
+        ],
+        "/InfrastructureStack/PostsTable/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PostsTableC82B36F0"
+          }
+        ],
+        "/InfrastructureStack/PostsApi/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PostsApi3071F4B3"
+          }
+        ],
+        "/InfrastructureStack/PostsApi/Schema": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PostsApiSchema2EF8909B"
+          }
+        ],
+        "/InfrastructureStack/PostsApi/PostsLambdaDataSource/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PostsApiPostsLambdaDataSourceServiceRole51E6BE20"
+          }
+        ],
+        "/InfrastructureStack/PostsApi/PostsLambdaDataSource/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PostsApiPostsLambdaDataSourceServiceRoleDefaultPolicyF48D0527"
+          }
+        ],
+        "/InfrastructureStack/PostsApi/PostsLambdaDataSource/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PostsApiPostsLambdaDataSourceDA8D04ED"
+          }
+        ],
+        "/InfrastructureStack/PostsApi/QueryGetPosts/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PostsApiQueryGetPosts8F7D2C80"
+          }
+        ],
+        "/InfrastructureStack/PostsApi/MutationCreatePost/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PostsApiMutationCreatePost97229947"
+          }
+        ],
+        "/InfrastructureStack/PostsApi/MutationUpdatePost/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PostsApiMutationUpdatePost1B8D7776"
+          }
+        ],
+        "/InfrastructureStack/PostsApi/MutationDeletePost/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PostsApiMutationDeletePost2611CD65"
+          }
+        ],
+        "/InfrastructureStack/MyFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyFunctionServiceRole3C357FF2"
+          }
+        ],
+        "/InfrastructureStack/MyFunction/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyFunctionServiceRoleDefaultPolicyB705ABD4"
+          }
+        ],
+        "/InfrastructureStack/MyFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyFunction3BAA72D1"
+          }
+        ],
+        "/InfrastructureStack/MyFunctionExecutionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyFunctionExecutionRole12D3604D"
+          }
+        ],
+        "/InfrastructureStack/AuthenticatedRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuthenticatedRole86104F1A"
+          }
+        ],
+        "/InfrastructureStack/AuthenticatedRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuthenticatedRoleDefaultPolicy8B1AC271"
+          }
+        ],
+        "/InfrastructureStack/PostsLambdaDataSourceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PostsLambdaDataSourceRole8A534766"
+          }
+        ],
+        "/InfrastructureStack/PostsLambdaDataSourceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PostsLambdaDataSourceRoleDefaultPolicyC32AEE6E"
+          }
+        ],
+        "/InfrastructureStack/GraphQLApiUrl": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GraphQLApiUrl"
+          }
+        ],
+        "/InfrastructureStack/UserPoolId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "UserPoolId"
+          }
+        ],
+        "/InfrastructureStack/UserPoolClientId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "UserPoolClientId"
+          }
+        ],
+        "/InfrastructureStack/IdentityPoolId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "IdentityPoolId"
+          }
+        ],
+        "/InfrastructureStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/InfrastructureStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/InfrastructureStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/InfrastructureStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "InfrastructureStack"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}

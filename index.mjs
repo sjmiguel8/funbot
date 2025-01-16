@@ -1,6 +1,19 @@
 import { DynamoDB } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocument } from '@aws-sdk/lib-dynamodb';
+import Amplify from 'aws-amplify';
+import awsconfig from './infrastructure/src/aws-exports';import { API, graphqlOperation } from 'aws-amplify';
+import { getPosts } from './graphql/queries'; // Adjust the path as necessary
 
+async function fetchPosts() {
+    try {
+        const postData = await API.graphql(graphqlOperation(getPosts));
+        console.log('Posts:', postData);
+    } catch (error) {
+        console.error('Error fetching posts:', error);
+    }
+}
+
+Amplify.configure(awsconfig);
 
 const client = new DynamoDB({});
 const dynamoDB = DynamoDBDocument.from(client);

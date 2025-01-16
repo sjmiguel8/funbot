@@ -3,6 +3,7 @@ import * as cognito from 'aws-cdk-lib/aws-cognito';
 import * as appsync from 'aws-cdk-lib/aws-appsync';
 import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
 import * as iam from 'aws-cdk-lib/aws-iam';
+import * as lambda from 'aws-cdk-lib/aws-lambda';
 import { Construct } from 'constructs';
 
 export class InfrastructureStack extends cdk.Stack {
@@ -64,7 +65,54 @@ export class InfrastructureStack extends cdk.Stack {
       },
     });
 
-    // Create IAM roles
+    // Create Lambda Function
+    const lambdaFunction = new lambda.Function(this, 'MyFunction', {
+      runtime: lambda.Runtime.NODEJS_18_X,
+      handler: 'lambda/dynamodb/index.handler',
+      code: lambda.Code.fromAsset('lambda/dynamodb'),
+      environment: {
+        POSTS_TABLE: postsTable.tableName,
+      },
+    });
+
+    // Create Lambda Data Source
+    const lambdaDataSource = api.addLambdaDataSource('PostsLambdaDataSource', lambdaFunction);
+
+    // Create Resolvers
+    lambdaDataSource.createResolver('QueryGetPosts', {
+      typeName: 'Query',
+      fieldName: 'getPosts',
+    });
+
+    lambdaDataSource.createResolver('MutationCreatePost', {
+      typeName: 'Mutation',
+      fieldName: 'createPost',
+    });
+
+    lambdaDataSource.createResolver('MutationUpdatePost', {
+      typeName: 'Mutation',
+      fieldName: 'updatePost',
+    });
+
+    lambdaDataSource.createResolver('MutationDeletePost', {
+      typeName: 'Mutation',
+      fieldName: 'deletePost',
+    });
+
+    // Grant Lambda permissions to DynamoDB
+    postsTable.grantReadWriteData(lambdaFunction);
+
+    // Create Lambda Execution Role
+    const lambdaExecutionRole = new iam.Role(this, 'MyFunctionExecutionRole', {
+      assumedBy: new iam.ServicePrincipal('lambda.amazonaws.com'),
+    });
+
+    // Attach managed policies to the Lambda role
+    lambdaExecutionRole.addManagedPolicy(iam.ManagedPolicy.fromAwsManagedPolicyName('service-role/AWSLambdaBasicExecutionRole'));
+    lambdaExecutionRole.addManagedPolicy(iam.ManagedPolicy.fromAwsManagedPolicyName('AmazonDynamoDBFullAccess'));
+    lambdaExecutionRole.addManagedPolicy(iam.ManagedPolicy.fromAwsManagedPolicyName('AWSAppSyncInvokeFullAccess'));
+
+    // Create Authenticated Role for Cognito
     const authenticatedRole = new iam.Role(this, 'AuthenticatedRole', {
       assumedBy: new iam.FederatedPrincipal(
         'cognito-identity.amazonaws.com',
@@ -80,19 +128,28 @@ export class InfrastructureStack extends cdk.Stack {
       ),
     });
 
-    // Grant permissions to authenticated users
-    authenticatedRole.addToPolicy(
-      new iam.PolicyStatement({
-        effect: iam.Effect.ALLOW,
-        actions: [
-          'appsync:GraphQL',
-        ],
-        resources: [
-          `${api.arn}/types/Query/*`,
-          `${api.arn}/types/Mutation/*`,
-        ],
-      })
-    );
+    // Attach managed policy to the Authenticated Role
+    authenticatedRole.addManagedPolicy(iam.ManagedPolicy.fromAwsManagedPolicyName('AmazonCognitoPowerUser'));
+
+    // Attach AppSync permissions to the Authenticated Role
+    authenticatedRole.addToPolicy(new iam.PolicyStatement({
+      actions: ["appsync:GraphQL"],
+      resources: [
+        `arn:aws:appsync:${this.region}:${this.account}:apis/${api.apiId}/types/Query/*`,
+        `arn:aws:appsync:${this.region}:${this.account}:apis/${api.apiId}/types/Mutation/*`
+      ],
+    }));
+
+    // Create AppSync Data Source Role
+    const dataSourceRole = new iam.Role(this, 'PostsLambdaDataSourceRole', {
+      assumedBy: new iam.ServicePrincipal('appsync.amazonaws.com'),
+    });
+
+    // Attach Lambda invoke permissions to the AppSync Data Source Role
+    dataSourceRole.addToPolicy(new iam.PolicyStatement({
+      actions: ["lambda:InvokeFunction"],
+      resources: [lambdaFunction.functionArn],
+    }));
 
     // Output values
     new cdk.CfnOutput(this, 'GraphQLApiUrl', { value: api.graphqlUrl });

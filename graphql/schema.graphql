@@ -1,4 +1,4 @@
-type Post @model @auth(rules: [{ allow: owner }]) {
+type Post @aws_api_key @aws_cognito_user_pools {
   id: ID!
   content: String!
   authorId: String!
@@ -21,13 +21,13 @@ enum AttachmentType {
 }
 
 type Query {
-  getPosts: [Post]!
+  getPosts: [Post]! @aws_api_key @aws_cognito_user_pools
 }
 
 type Mutation {
-  createPost(input: CreatePostInput!): Post!
-  updatePost(id: ID!, input: UpdatePostInput!): Post!
-  deletePost(id: ID!): Boolean!
+  createPost(input: CreatePostInput!): Post! @aws_cognito_user_pools
+  updatePost(id: ID!, input: UpdatePostInput!): Post! @aws_cognito_user_pools
+  deletePost(id: ID!): Boolean! @aws_cognito_user_pools
 }
 
 input CreatePostInput {
