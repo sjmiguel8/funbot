@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-funbot-dev-eef6b-authRole",
+      "UnauthRoleArn": "arn:aws:iam::203918851050:role/amplify-funbot-dev-eef6b-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::203918851050:role/amplify-funbot-dev-eef6b-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-funbot-dev-eef6b-deployment",
+      "UnauthRoleName": "amplify-funbot-dev-eef6b-unauthRole",
+      "StackName": "amplify-funbot-dev-eef6b",
+      "StackId": "arn:aws:cloudformation:us-east-2:203918851050:stack/amplify-funbot-dev-eef6b/97550a40-d101-11ef-8143-022008143e53",
+      "AmplifyAppId": "djwpxhnm8kait"
+    }
+  }
+}

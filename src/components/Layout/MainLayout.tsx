@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import NavigationList from '../NavigationList';
 import Link from 'next/link';
 import { Container, Row, Col, Form, Button, Dropdown, Card } from 'react-bootstrap';
+import styles from './MainLayout.module.css';
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -60,7 +61,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
   ];
 
   return (
-    <div className="min-vh-100 bg-dark">
+    <div className={styles.layout}>
       {/* Left Sidebar - Fixed */}
       <div className="position-fixed start-0 top-0 h-100 bg-dark border-end border-secondary sidebar" 
            style={{ zIndex: 1030 }}>

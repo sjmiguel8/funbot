@@ -87,6 +87,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13BB8A13A085F0C713806987 /* AmplifyModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = AmplifyModels;
+			sourceTree = "<group>";
+		};
 		B0633DE9AC1E462C84754AAE /* AmplifyConfig */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +112,7 @@
 				DC948DCC2D335D64000737A3 /* Frameworks */,
 				DC4206862D3307AE00BCB685 /* Products */,
 				B0633DE9AC1E462C84754AAE /* AmplifyConfig */,
+				13BB8A13A085F0C713806987 /* AmplifyModels */,
 			);
 			sourceTree = "<group>";
 		};

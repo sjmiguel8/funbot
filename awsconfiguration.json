@@ -3,5 +3,14 @@
     "Version": "0.1.0",
     "IdentityManager": {
         "Default": {}
+    },
+    "AppSync": {
+        "Default": {
+            "ApiUrl": "https://dxqf7gevyrcmrmvtuty7tnquhm.appsync-api.us-east-2.amazonaws.com/graphql",
+            "Region": "us-east-2",
+            "AuthMode": "API_KEY",
+            "ApiKey": "da2-pkouqfmdgrhcpimmhwvqig3mtm",
+            "ClientDatabasePrefix": "funbot_API_KEY"
+        }
     }
 }

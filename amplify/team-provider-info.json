@@ -1,15 +1,20 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-funbot-dev-eef6b-authRole",
-      "UnauthRoleArn": "arn:aws:iam::203918851050:role/amplify-funbot-dev-eef6b-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::203918851050:role/amplify-funbot-dev-eef6b-authRole",
+      "AuthRoleName": "amplify-funbot-dev-94e27-authRole",
+      "UnauthRoleArn": "arn:aws:iam::203918851050:role/amplify-funbot-dev-94e27-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::203918851050:role/amplify-funbot-dev-94e27-authRole",
       "Region": "us-east-2",
-      "DeploymentBucketName": "amplify-funbot-dev-eef6b-deployment",
-      "UnauthRoleName": "amplify-funbot-dev-eef6b-unauthRole",
-      "StackName": "amplify-funbot-dev-eef6b",
-      "StackId": "arn:aws:cloudformation:us-east-2:203918851050:stack/amplify-funbot-dev-eef6b/97550a40-d101-11ef-8143-022008143e53",
-      "AmplifyAppId": "djwpxhnm8kait"
+      "DeploymentBucketName": "amplify-funbot-dev-94e27-deployment",
+      "UnauthRoleName": "amplify-funbot-dev-94e27-unauthRole",
+      "StackName": "amplify-funbot-dev-94e27",
+      "StackId": "arn:aws:cloudformation:us-east-2:203918851050:stack/amplify-funbot-dev-94e27/8062aa80-d440-11ef-8410-0a1d1190f68d",
+      "AmplifyAppId": "d2alg6f2irklkz"
+    },
+    "categories": {
+      "api": {
+        "funbot": {}
+      }
     }
   }
 }
