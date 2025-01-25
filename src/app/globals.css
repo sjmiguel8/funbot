@@ -1,66 +1,177 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
-  --foreground-rgb: 255, 255, 255;
+  --foreground-rgb: 0, 255, 255;
   --background-start-rgb: 17, 24, 39;
   --background-end-rgb: 31, 41, 55;
+
+  /* Primary Colors */
+  --primary-color: #3B82F6;
+  --primary-light: #93C5FD;
+  --primary-dark: #1D4ED8;
+  
+  /* Background Colors */
+  --bg-dark: #000000;
+  --bg-main: #000000;
+  --bg-light: #000000;
+  
+  /* Text Colors */
+  --text-light: #F9FAFB;
+  --text-dark: #111827;
+  --text-muted: #6B7280;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgb(0, 0, 0);
+  --shadow-md: 0 4px 6px rgb(0, 0, 0);
+  --shadow-lg: 0 10px 15px rgb(0, 0, 0);
 }
 
 @layer base {
-  /* Override default link styles */
-  a {
-    @apply text-inherit no-underline;
+  /* Reset defaults */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
 
-  /* Add some basic styles */
+  /* Base styles */
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-main);
+
+  }
+
   body {
-    @apply text-gray-100 bg-gray-900;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
     font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+  }
+
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-light);
+    font-weight: 600;
+    line-height: 1.2;
   }
 
   h1 {
-    @apply text-2xl font-bold text-white mb-4;
+    font-size: 1.875rem;
+    margin-bottom: 1.5rem;
   }
 
   h2 {
-    @apply text-xl font-semibold text-white mb-3;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Links */
+  a {
+    text-decoration: none;
+    color: var(--primary-light);
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    color: var(--primary-color);
   }
 }
 
 @layer components {
+  /* Buttons */
   .btn-primary {
-    @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg 
-           transition-colors duration-200 shadow-lg hover:shadow-xl;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+    border: none;
+    cursor: pointer;
+    display: inline-block;
   }
-  
+
+  .btn-primary:hover {
+    background-color: var(--primary-dark);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  /* Cards */
   .card {
-    @apply bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-700;
+    background-color: var(--bg-dark);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+  }
+
+  .card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow-lg);
   }
 
   .post-card {
-    @apply bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-700 
-           hover:border-gray-600 transition-colors duration-200;
+    background-color: var(--bg-dark);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
   }
-  
+
+  .post-card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Interactive Elements */
   .profile-link {
-    @apply flex items-center space-x-2 text-gray-300 hover:text-white 
-           transition-colors duration-200;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
   }
-  
+
+  .profile-link:hover {
+    color: var(--text-light);
+  }
+
   .interaction-button {
-    @apply flex items-center space-x-1 text-gray-400 hover:text-blue-500 
-           transition-colors duration-200;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+
+  .interaction-button:hover {
+    color: var(--text-light);
+    background-color: rgba(255, 255, 255, 0.1);
   }
 }
 
+/* Typography Utilities */
 .forum-regular {
   font-family: "Noto Sans Wancho", serif;
   font-weight: 400;
   font-style: normal;
 }
 
+/* Icon Styles */
 .material-symbols-outlined {
   font-variation-settings:
     'FILL' 0,
@@ -69,10 +180,9 @@
     'opsz' 24;
   font-size: 24px;
   line-height: 1;
-  color: #fff;
+  color: var(--text-light);
 }
 
-/* For filled icons when active */
 .material-symbols-outlined.filled {
   font-variation-settings:
     'FILL' 1,
@@ -81,13 +191,38 @@
     'opsz' 24;
 }
 
+/* Layout Components */
 .sidebar {
-  width: 240px; /* Default width for larger screens */
+  width: 240px;
+  transition: width 0.3s ease;
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
   .sidebar {
-    width: 180px; /* Smaller width for mobile devices */
+    width: 180px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  .card, .post-card {
+    padding: 1rem;
   }
 }
 
+/* Dark mode optimizations */
+@media (prefers-color-scheme: dark) {
+  .card, .post-card {
+    background-color: rgba(17, 24, 39, 0.8);
+  }
+
+  .interaction-button:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+}

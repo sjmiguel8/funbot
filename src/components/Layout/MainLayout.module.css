@@ -1,6 +1,42 @@
+:root {
+  --text-light: #ffffff; /* Define your light text color here */
+}
+
 .layout {
-  background-color: #000000; /* Change to your desired color */
-  color: #222; /* Change text color */
-  min-height: 100vh; /* Ensure it covers the full height */
-  padding: 20px; /* Optional padding */
-} 
+  background-color: black;
+  color: var(--text-light);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .layout {
+    padding: 1rem;
+  }
+}
+
+.mainContent {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .mainContent {
+    max-width: 100%;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
