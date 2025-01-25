@@ -9,14 +9,25 @@ if (!process.env.NEXT_PUBLIC_USER_POOL_CLIENT_ID) throw new Error('NEXT_PUBLIC_U
 if (!process.env.NEXT_PUBLIC_IDENTITY_POOL_ID) throw new Error('NEXT_PUBLIC_IDENTITY_POOL_ID is required')
 if (!process.env.NEXT_PUBLIC_API_URL) throw new Error('NEXT_PUBLIC_API_URL is required')
 if (!process.env.NEXT_PUBLIC_AWS_REGION) throw new Error('NEXT_PUBLIC_AWS_REGION is required')
+if (!process.env.NEXT_PUBLIC_AUTH_DOMAIN) throw new Error('NEXT_PUBLIC_AUTH_DOMAIN is required')
 
 // Initialize Amplify configuration
 Amplify.configure({
   Auth: {
-    region: process.env.NEXT_PUBLIC_AWS_REGION,
-    userPoolId: process.env.NEXT_PUBLIC_USER_POOL_ID,
-    userPoolWebClientId: process.env.NEXT_PUBLIC_USER_POOL_CLIENT_ID,
-    identityPoolId: process.env.NEXT_PUBLIC_IDENTITY_POOL_ID,
+    Cognito: {
+      userPoolId: process.env.NEXT_PUBLIC_USER_POOL_ID,
+      userPoolClientId: process.env.NEXT_PUBLIC_USER_POOL_CLIENT_ID,
+      identityPoolId: process.env.NEXT_PUBLIC_IDENTITY_POOL_ID,
+      loginWith: {
+        oauth: {
+          domain: process.env.NEXT_PUBLIC_AUTH_DOMAIN,
+          scopes: ['email', 'openid', 'profile'],
+          redirectSignIn: [window.location.origin],
+          redirectSignOut: [window.location.origin],
+          responseType: 'code',
+        },
+      },
+    },
   },
   API: {
     GraphQL: {

@@ -1,9 +1,8 @@
-const AWS = require('aws-sdk');
-const { DynamoDB } = require('aws-sdk');
+import AWS from 'aws-sdk';
 const dynamoDB = new AWS.DynamoDB.DocumentClient();
 const POSTS_TABLE = 'PostsInfrastructureStack-PostsTableC82B36F0-UZETHU5OVEYC';
 
-exports.handler = async (event) => {
+export const handler = async (event) => {
     console.log('Event:', JSON.stringify(event, null, 2));
 
     const fieldName = event.fieldName;

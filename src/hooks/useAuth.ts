@@ -6,10 +6,6 @@ export function useAuth() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    checkAuth()
-  }, [])
-
   const checkAuth = useCallback(async () => {
     try {
       await getCurrentUser()
@@ -20,6 +16,10 @@ export function useAuth() {
       setLoading(false)
     }
   }, [])
+
+  useEffect(() => {
+    checkAuth()
+  }, [checkAuth])
 
   return {
     isAuthenticated,

@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react';
 import { getCurrentUser } from 'aws-amplify/auth';
-import { postsService } from '../services/posts.service';
+import { PostsService } from '../services/posts.service';
 
 interface CreatePostProps {
   onPostCreated: () => void;
@@ -12,6 +12,8 @@ export default function CreatePost({ onPostCreated }: CreatePostProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const postsService = new PostsService();
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!content.trim()) return;
@@ -21,7 +23,7 @@ export default function CreatePost({ onPostCreated }: CreatePostProps) {
 
     try {
       const user = await getCurrentUser();
-      await postsService.createPost(
+      await PostsService.createPost(
         content,
         user.userId,
         user.username

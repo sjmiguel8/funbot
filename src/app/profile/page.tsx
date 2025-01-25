@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { postsService, Post } from '../../services/posts.service';
+import { PostsService, Post } from '../../services/posts.service';
 import CreatePost from '../../components/CreatePost';
 import { Card, Button } from 'react-bootstrap';
 import { useAuthenticator } from '@aws-amplify/ui-react';
@@ -19,9 +19,9 @@ export default function ProfilePage() {
         try {
           setLoading(true);
           setError(null);
-          const posts = await postsService.getPosts();
+          const posts = await PostsService.getPosts();
           if (mounted) {
-            const userPosts = posts.filter(post => post.authorId === user.userId);
+            const userPosts = posts.filter((post: Post) => post.authorId === user.userId);
             setUserPosts(userPosts);
           }
         } catch (err) {
@@ -47,8 +47,8 @@ export default function ProfilePage() {
     try {
       setLoading(true);
       setError(null);
-      const posts = await postsService.getPosts();
-      const userPosts = posts.filter(post => post.authorId === userId);
+      const posts = await PostsService.getPosts();
+      const userPosts = posts.filter((post: Post) => post.authorId === userId);
       setUserPosts(userPosts);
     } catch (err) {
       console.error('Failed to load posts:', err);
@@ -66,7 +66,6 @@ export default function ProfilePage() {
 
   return (
     <div className="container-fluid py-4">
-      {/* Profile Header */}
       <Card bg="dark" text="light" className="mb-4">
         <Card.Body>
           <h1 className="h3 mb-2">Your Profile</h1>
@@ -74,7 +73,6 @@ export default function ProfilePage() {
         </Card.Body>
       </Card>
 
-      {/* Create Post Section */}
       <Card bg="dark" text="light" className="mb-4">
         <Card.Body>
           <h2 className="h4 mb-3">Create New Post</h2>
@@ -82,12 +80,11 @@ export default function ProfilePage() {
         </Card.Body>
       </Card>
 
-      {/* User Posts Section */}
       <Card bg="dark" text="light">
         <Card.Body>
           <h2 className="h4 mb-3">Your Posts</h2>
           {userPosts.length === 0 ? (
-            <p className="text-muted">You haven't created any posts yet.</p>
+            <p className="text-muted">You haven&apos;t created any posts yet.</p>
           ) : (
             <div className="d-flex flex-column gap-3">
               {userPosts.map(post => (
@@ -103,7 +100,7 @@ export default function ProfilePage() {
                           size="sm"
                           className="me-2"
                           onClick={() => {
-                            // Implement edit functionality
+                            // Edit functionality to be implemented
                           }}
                         >
                           Edit
@@ -113,7 +110,7 @@ export default function ProfilePage() {
                           size="sm"
                           onClick={async () => {
                             try {
-                              await postsService.deletePost(post.id);
+                              await PostsService.deletePost(post.id);
                               loadUserPosts(user.userId);
                             } catch (err) {
                               console.error('Failed to delete post:', err);
@@ -138,4 +135,4 @@ export default function ProfilePage() {
       </Card>
     </div>
   );
-} 
+}

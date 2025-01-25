@@ -1,48 +1,76 @@
-type Post @aws_api_key @aws_cognito_user_pools {
+type Blog @model {
   id: ID!
+  name: String!
+  posts: [Post] @hasMany
+}
+
+type Post @model {
+  id: ID!
+  title: String!
+  blog: Blog @belongsTo
+  comments: [Comment] @hasMany
+}
+
+type Comment @model {
+  id: ID!
+  post: Post @belongsTo
   content: String!
-  authorId: String!
-  authorName: String!
-  timestamp: String!
-  likes: Int!
-  comments: Int!
-  attachments: [Attachment]
-}
-
-type Attachment {
-  type: AttachmentType!
-  url: String!
-}
-
-enum AttachmentType {
-  IMAGE
-  AUDIO
-  VIDEO
 }
 
 type Query {
-  getPosts: [Post]! @aws_api_key @aws_cognito_user_pools
+  getBlog(id: ID!): Blog
+  listBlogs(filter: ModelBlogFilterInput, limit: Int, nextToken: String): ModelBlogConnection
+  getPost(id: ID!): Post
+  listPosts(filter: ModelPostFilterInput, limit: Int, nextToken: String): ModelPostConnection
+  getComment(id: ID!): Comment
+  listComments(filter: ModelCommentFilterInput, limit: Int, nextToken: String): ModelCommentConnection
 }
 
-type Mutation {
-  createPost(input: CreatePostInput!): Post! @aws_cognito_user_pools
-  updatePost(id: ID!, input: UpdatePostInput!): Post! @aws_cognito_user_pools
-  deletePost(id: ID!): Boolean! @aws_cognito_user_pools
+input ModelBlogFilterInput {
+  id: ModelIDInput
+  name: ModelStringInput
+  and: [ModelBlogFilterInput]
+  or: [ModelBlogFilterInput]
+  not: ModelBlogFilterInput
 }
 
-input CreatePostInput {
-  content: String!
-  authorId: String!
-  authorName: String!
-  attachments: [AttachmentInput]
+input ModelStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
 }
 
-input UpdatePostInput {
-  content: String
-  attachments: [AttachmentInput]
+input ModelIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
 }
 
-input AttachmentInput {
-  type: AttachmentType!
-  url: String!
+type ModelBlogConnection {
+  items: [Blog]
+  nextToken: String
+}
+
+type ModelPostConnection {
+  items: [Post]
+  nextToken: String
+}
+
+type ModelCommentConnection {
+  items: [Comment]
+  nextToken: String
 }

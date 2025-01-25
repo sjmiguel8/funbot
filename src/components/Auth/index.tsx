@@ -2,14 +2,15 @@
 import { Authenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 
-export function Auth({ children }: { children: React.ReactNode }) {
+interface AuthProps {
+  children: React.ReactNode;
+}
+
+export function Auth({ children }: AuthProps) {
   return (
     <Authenticator>
-      {({ signOut, user }) => (
-        <div>
-          {children}
-        </div>
-      )}
+      {/* eslint-disable-next-line @typescript-eslint/no-unused-vars */}
+      {({ signOut, user }) => <div>{children}</div>}
     </Authenticator>
   );
-} 
+}

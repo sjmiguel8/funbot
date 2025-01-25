@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import NavigationList from '../NavigationList';
 import Link from 'next/link';
-import { Container, Row, Col, Form, Button, Dropdown, Card } from 'react-bootstrap';
+import { Form, Button, Card } from 'react-bootstrap';
 import styles from './MainLayout.module.css';
 
 interface MainLayoutProps {

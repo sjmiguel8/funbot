@@ -3,6 +3,15 @@
 out/
 build/
 dist/
+.build/
+build/
+.aws-sam/
+myapp.xcodeproj/
+myapp.xcworkspace/
+Pods/
+amplify/
+amplify_backup/
+.swiftpm/
 
 # Dependencies
 node_modules/

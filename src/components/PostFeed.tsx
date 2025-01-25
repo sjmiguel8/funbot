@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react';
-import { postsService, Post } from '../services/posts.service';
+import { Post, PostsService } from '../services/posts.service';
 import PostCard from './PostCard';
 import CreatePost from './CreatePost';
 
@@ -15,7 +15,7 @@ export default function PostFeed() {
 
   async function loadPosts() {
     try {
-      const fetchedPosts = await postsService.getPosts();
+      const fetchedPosts = await PostsService.getPosts();
       setPosts(fetchedPosts);
     } catch (err) {
       setError('Failed to load posts');

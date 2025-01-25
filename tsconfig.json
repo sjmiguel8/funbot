@@ -22,13 +22,23 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "exclude": [
     "node_modules",
-    "cdk.out"
+    "dist",
+    ".next",
+    "out"
   ],
   "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
     "out/types/**/*.ts",
     "src",
     "src/graphql/**/*.ts",

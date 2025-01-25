@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react';
-import { Post, postsService } from '../services/posts.service';
+import { Post, PostsService } from '../services/posts.service';
 
 
 interface PostCardProps {
@@ -15,7 +15,7 @@ export default function PostCard({ post, onPostUpdated }: PostCardProps) {
 
   async function handleDelete() {
     try {
-      await postsService.deletePost(post.id);
+      await PostsService.deletePost(post.id);
       onPostUpdated();
     } catch (err) {
       setError('Failed to delete post');
@@ -25,7 +25,7 @@ export default function PostCard({ post, onPostUpdated }: PostCardProps) {
 
   async function handleUpdate() {
     try {
-      await postsService.updatePost(post.id, content);
+      await PostsService.updatePost(post.id, content);
       setIsEditing(false);
       onPostUpdated();
     } catch (err) {

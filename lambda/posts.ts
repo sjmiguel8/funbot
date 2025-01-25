@@ -3,53 +3,12 @@ import { DynamoDB } from 'aws-sdk';
 const dynamoDB = new DynamoDB.DocumentClient();
 const POSTS_TABLE = 'PostsInfrastructureStack-PostsTableC82B36F0-UZETHU5OVEYC';
 
-export const handler = async (event: any) => {
-    console.log('Event:', JSON.stringify(event, null, 2));
-
-    const fieldName = event.fieldName;
-
-    try {
-        if (fieldName === 'getPosts') {
-            return await getPosts();
-        } else if (fieldName === 'createPost') {
-            return await createPost(event.arguments.input);
-        } else if (fieldName === 'updatePost') {
-            return await updatePost(event.arguments.id, event.arguments.input);
-        } else if (fieldName === 'deletePost') {
-            return await deletePost(event.arguments.id);
-        } else {
-            console.error('No token found in session. Please log in again.');
-            throw new Error('Authentication required. Please log in.');
-        }
-    } catch (err) {
-        console.error('Authentication error:', err);
-        if (err instanceof Error) {
-            throw new Error(`Authentication failed: ${err.message}. Please check your credentials.`);
-        } else {
-            throw new Error('An unknown error occurred');
-        }
-    }
-};
-
-async function getPosts() {
-    const params = {
-        TableName: POSTS_TABLE,
+interface AppSyncEvent {
+    fieldName: string;
+    arguments: {
+        id?: string;
+        input?: PostInput;
     };
-
-    try {
-        const result = await dynamoDB.scan(params).promise();
-        if (!result.Items) {
-            console.error('Unexpected result type received.');
-            throw new Error('Unexpected result type.');
-        }
-        return result.Items;
-    } catch (err) {
-        console.error('GraphQL Error Details:', {
-          message: err.message,
-          stack: err.stack
-        });
-        throw new Error(`Failed to get posts: ${err.message}.`);
-    }
 }
 
 interface PostInput {
@@ -58,12 +17,36 @@ interface PostInput {
     authorName: string;
 }
 
-async function createPost(input: PostInput) {
+interface Post extends PostInput {
+    id: string;
+    timestamp: string;
+    likes: number;
+    comments: number;
+}
+
+async function getPosts(): Promise<Post[]> {
+    const params = {
+        TableName: POSTS_TABLE
+    };
+
+    try {
+        const result = await dynamoDB.scan(params).promise();
+        return result.Items as Post[];
+    } catch (err) {
+        console.error('GraphQL Error Details:', {
+            message: (err as Error).message,
+            stack: (err as Error).stack
+        });
+        throw new Error(`Failed to get posts: ${(err as Error).message}`);
+    }
+}
+
+async function createPost(input: PostInput): Promise<Post> {
     if (!input || !input.content || !input.authorId || !input.authorName) {
         throw new Error('Missing required fields');
     }
 
-    const post = {
+    const post: Post = {
         id: Date.now().toString(),
         content: input.content,
         authorId: input.authorId,
@@ -73,7 +56,7 @@ async function createPost(input: PostInput) {
         comments: 0
     };
 
-    const params = {
+    const params: DynamoDB.DocumentClient.PutItemInput = {
         TableName: POSTS_TABLE,
         Item: post
     };
@@ -87,12 +70,12 @@ async function createPost(input: PostInput) {
     }
 }
 
-async function updatePost(id: string, input: any) {
+async function updatePost(id: string, input: Partial<PostInput>): Promise<Post> {
     if (!id || !input.content) {
         throw new Error('Post ID and content are required');
     }
 
-    const params = {
+    const params: DynamoDB.DocumentClient.UpdateItemInput = {
         TableName: POSTS_TABLE,
         Key: { id },
         UpdateExpression: 'SET content = :content',
@@ -104,19 +87,19 @@ async function updatePost(id: string, input: any) {
 
     try {
         const result = await dynamoDB.update(params).promise();
-        return result.Attributes;
+        return result.Attributes as Post;
     } catch (err) {
         console.error('Failed to update post:', err);
         throw new Error('Failed to update post. Please try again later.');
     }
 }
 
-async function deletePost(id: string) {
+async function deletePost(id: string): Promise<boolean> {
     if (!id) {
         throw new Error('Post ID is required');
     }
 
-    const params = {
+    const params: DynamoDB.DocumentClient.DeleteItemInput = {
         TableName: POSTS_TABLE,
         Key: { id }
     };
@@ -128,4 +111,43 @@ async function deletePost(id: string) {
         console.error('Failed to delete post:', err);
         throw new Error('Failed to delete post. Please try again later.');
     }
-} 
+}
+
+export const handler = async (event: AppSyncEvent): Promise<Post | Post[] | boolean> => {
+    console.log('Event:', JSON.stringify(event, null, 2));
+
+    try {
+        switch (event.fieldName) {
+            case 'getPosts':
+                return await getPosts();
+            
+            case 'createPost':
+                if (!event.arguments.input) {
+                    throw new Error('Post input is required');
+                }
+                return await createPost(event.arguments.input);
+            
+            case 'updatePost':
+                if (!event.arguments.id || !event.arguments.input) {
+                    throw new Error('Post ID and input are required');
+                }
+                return await updatePost(event.arguments.id, event.arguments.input);
+            
+            case 'deletePost':
+                if (!event.arguments.id) {
+                    throw new Error('Post ID is required');
+                }
+                return await deletePost(event.arguments.id);
+            
+            default:
+                throw new Error(`Unhandled field name: ${event.fieldName}`);
+        }
+    } catch (err) {
+        console.error('Operation error:', err);
+        if (err instanceof Error) {
+            throw new Error(`Operation failed: ${err.message}`);
+        } else {
+            throw new Error('An unknown error occurred');
+        }
+    }
+};

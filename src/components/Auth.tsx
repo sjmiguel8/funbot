@@ -50,9 +50,13 @@ const Auth = () => {
         setSuccess('Login successful!')
         window.location.href = '/' // Force a full page reload
       }
-    } catch (error: any) {
+    } catch (error) {
       console.error('Auth error:', error)
-      setError(error.message || 'An error occurred')
+      if (error instanceof Error) {
+        setError(error.message)
+      } else {
+        setError('An error occurred')
+      }
     } finally {
       setLoading(false)
     }
