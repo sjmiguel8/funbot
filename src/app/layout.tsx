@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AmplifyProvider from "./providers";
-import MainLayout from "../components/Layout/MainLayout";
+import MainLayout from "../components/MainLayout";
 import AuthWrapper from '../components/AuthWrapper';
 import React from "react";
+import '/src/components/styles/globals.css';
+
 
 const inter = Inter({
   subsets: ["latin"],
@@ -19,9 +20,9 @@ export const metadata: Metadata = {
 
 const ClientLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en">
       <head />
-      <body className={`${inter.variable} font-sans antialiased h-full`}>
+      <body className={inter.variable}>
         <AmplifyProvider>
           <AuthWrapper>
             <MainLayout>{children}</MainLayout>

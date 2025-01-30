@@ -4,6 +4,7 @@ import { useState } from 'react'
 import ChatView from './ChatView'
 import ExploreView from '../../app/explore/page'
 import ProfileView from '../../app/profile/page'
+import styles from '../../../styles/components/HomeView.module.css'
 
 export default function HomeView() {
   const [selectedTab, setSelectedTab] = useState('chat')
@@ -18,40 +19,34 @@ export default function HomeView() {
   }
 
   return (
-    <div className="h-screen flex">
+    <div className={styles.container}>
       {/* Sidebar */}
-      <div className="w-64 bg-gray-900 text-white">
-        <div className="p-4">
-          <h1 className="text-xl font-bold">Wavelength</h1>
+      <div className={styles.sidebar}>
+        <div className={styles.header}>
+          <h1 className={styles.title}>Wavelength</h1>
         </div>
-        <nav className="mt-4">
+        <nav className={styles.nav}>
           <button
             onClick={() => setSelectedTab('chat')}
-            className={`w-full text-left px-4 py-2 ${
-              selectedTab === 'chat' ? 'bg-gray-800' : 'hover:bg-gray-800'
-            }`}
+            className={selectedTab === 'chat' ? styles.navItemActive : styles.navItem}
           >
             Chat
           </button>
           <button
             onClick={() => setSelectedTab('explore')}
-            className={`w-full text-left px-4 py-2 ${
-              selectedTab === 'explore' ? 'bg-gray-800' : 'hover:bg-gray-800'
-            }`}
+            className={selectedTab === 'explore' ? styles.navItemActive : styles.navItem}
           >
             Explore
           </button>
           <button
             onClick={() => setSelectedTab('profile')}
-            className={`w-full text-left px-4 py-2 ${
-              selectedTab === 'profile' ? 'bg-gray-800' : 'hover:bg-gray-800'
-            }`}
+            className={selectedTab === 'profile' ? styles.navItemActive : styles.navItem}
           >
             Profile
           </button>
           <button
             onClick={handleSignOut}
-            className="w-full text-left px-4 py-2 text-red-400 hover:bg-gray-800"
+            className={styles.signOutButton}
           >
             Sign Out
           </button>
@@ -59,11 +54,11 @@ export default function HomeView() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 bg-gray-100">
+      <div className={styles.main}>
         {selectedTab === 'chat' && <ChatView />}
         {selectedTab === 'explore' && <ExploreView />}
         {selectedTab === 'profile' && <ProfileView />}
       </div>
     </div>
   )
-} 
+}

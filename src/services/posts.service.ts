@@ -79,7 +79,7 @@ export class PostsService {
   static async createPost(content: string, userId: string, username: string): Promise<void> {
     try {
       const newPost: Post = {
-        id: '', // Assign a unique id here
+        id: 'create', // Assign a unique id here
         content,
         authorId: userId,
         authorName: username,

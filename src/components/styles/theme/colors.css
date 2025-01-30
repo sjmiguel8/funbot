@@ -1,0 +1,32 @@
+:root {
+  /* Theme Colors */
+  --theme-primary: #007AFF;
+  --theme-primary-light: #409CFF;
+  --theme-primary-dark: #0055B3;
+  
+  /* Background Colors */
+  --bg-dark: #0a0a0a;
+  --bg-main: #121212;
+  --bg-light: #1a1a1a;
+  --bg-card: #1E1E1E;
+  --bg-hover: rgba(255, 255, 255, 0.05);
+  
+  /* Text Colors */
+  --text-primary: #F9FAFB;
+  --text-secondary: #E5E7EB;
+  --text-muted: #9CA3AF;
+  --text-link: #60A5FA;
+  
+  /* Border Colors */
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-color-hover: rgba(255, 255, 255, 0.2);
+  
+  /* Status Colors */
+  --success: #10B981;
+  --warning: #F59E0B;
+  --error: #EF4444;
+  --info: #3B82F6;
+  
+  /* Shadow Colors */
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}

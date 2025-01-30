@@ -1,0 +1,84 @@
+@import '../theme/colors.css';
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 240px;
+  background-color: var(--bg-dark);
+  border-right: 1px solid var(--border-color);
+  padding: 1.5rem;
+  position: fixed;
+  height: 100vh;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.navItem {
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.navItem:hover {
+  background-color: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.navItemActive {
+  composes: navItem;
+  background-color: var(--theme-primary);
+  color: var(--text-primary);
+}
+
+.signOutButton {
+  composes: navItem;
+  color: var(--error);
+  margin-top: auto;
+}
+
+.signOutButton:hover {
+  background-color: var(--bg-hover);
+  color: var(--error);
+}
+
+.main {
+  flex: 1;
+  margin-left: 240px;
+  padding: 2rem;
+  background-color: var(--bg-main);
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 180px;
+  }
+  
+  .main {
+    margin-left: 180px;
+    padding: 1rem;
+  }
+}

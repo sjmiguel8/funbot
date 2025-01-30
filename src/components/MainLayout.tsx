@@ -1,9 +1,13 @@
 'use client'
 import React, { useState, useRef, useEffect } from 'react';
-import NavigationList from '../NavigationList';
+import NavigationList from './NavigationList';
 import Link from 'next/link';
 import { Form, Button, Card } from 'react-bootstrap';
 import styles from './MainLayout.module.css';
+import '/src/components/styles/MainLayout.module.css'
+import '/src/components/styles/HomeView.module.css'
+import '/src/components/styles/global.css'
+
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -205,7 +209,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
         </div>
 
         {/* Main Content Area - Scrollable */}
-        <div className="pt-5 mt-4">
+        <div className={styles.layout}>
           <div className="d-flex justify-content-center">
             <div style={{ 
               width: '100%', 
@@ -256,4 +260,5 @@ const MainLayout = ({ children }: MainLayoutProps) => {
   );
 };
 
-export default MainLayout;
+export default MainLayout; 
+

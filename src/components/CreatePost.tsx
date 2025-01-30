@@ -2,6 +2,10 @@
 import { useState } from 'react';
 import { getCurrentUser } from 'aws-amplify/auth';
 import { PostsService } from '../services/posts.service';
+import '/src/styles/MainLayout.module.css'
+import '/src/styles/HomeView.module.css'
+import '/src/styles/global.css'
+
 
 interface CreatePostProps {
   onPostCreated: () => void;

@@ -36,13 +36,13 @@ const Auth = () => {
 
     try {
       if (isSignUp) {
-        await signUp({
-          username: email,
-          password,
-          options: {
-            userAttributes: { email }
-          }
-        })
+      await signUp({
+        username: email,
+        password,
+        options: {
+        userAttributes: { email }
+        }
+      })
         setSuccess('Account created! Please check your email for verification code.')
       } else {
         const signInResult = await signIn({ username: email, password })

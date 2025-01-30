@@ -3,6 +3,10 @@ import { useEffect, useState } from 'react';
 import { Post, PostsService } from '../services/posts.service';
 import PostCard from './PostCard';
 import CreatePost from './CreatePost';
+import '/src/styles/MainLayout.module.css'
+import '/src/styles/HomeView.module.css'
+import '/src/styles/global.css'
+
 
 export default function PostFeed() {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -12,6 +16,8 @@ export default function PostFeed() {
   useEffect(() => {
     loadPosts();
   }, []);
+
+
 
   async function loadPosts() {
     try {

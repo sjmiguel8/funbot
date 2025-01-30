@@ -1,0 +1,204 @@
+@import '../theme/colors.css';
+
+.exploreContainer {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.searchSection {
+  margin-bottom: 2rem;
+}
+
+.searchBar {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.searchBar:focus {
+  outline: none;
+  border-color: var(--theme-primary);
+}
+
+.filters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filterButton {
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filterButton:hover {
+  background-color: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.filterButton.active {
+  background-color: var(--theme-primary);
+  border-color: var(--theme-primary);
+  color: var(--text-primary);
+}
+
+.section {
+  margin-bottom: 3rem;
+}
+
+.section h2 {
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.artistsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.artistCard {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--bg-card);
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+}
+
+.artistCard:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-color-hover);
+}
+
+.artistAvatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: var(--bg-light);
+  margin: 0 auto 1rem;
+}
+
+.artistCard h3 {
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.followers {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.tracksList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.trackItem {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.trackItem:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-color-hover);
+}
+
+.trackImage {
+  width: 48px;
+  height: 48px;
+  border-radius: 0.25rem;
+  background-color: var(--bg-light);
+}
+
+.trackInfo {
+  margin-left: 1rem;
+  flex: 1;
+}
+
+.trackInfo h3 {
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.artistName {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.duration {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.playlistsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.playlistCard {
+  padding: 1rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.playlistCard:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-color-hover);
+}
+
+.playlistImage {
+  width: 100%;
+  padding-bottom: 100%;
+  background-color: var(--bg-light);
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.playlistCard h3 {
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.trackCount {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+@media (max-width: 768px) {
+  .exploreContainer {
+    padding: 1rem;
+  }
+  
+  .artistsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  
+  .playlistsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+  
+  .artistAvatar {
+    width: 80px;
+    height: 80px;
+  }
+}

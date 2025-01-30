@@ -1,6 +1,9 @@
 'use client'
 import { useState } from 'react';
 import { Post, PostsService } from '../services/posts.service';
+import '/src/styles/MainLayout.module.css'
+import '/src/styles/HomeView.module.css'
+import '/src/styles/global.css'
 
 
 interface PostCardProps {
